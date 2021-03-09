@@ -45,7 +45,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, yRange, transform.position.z);
         }
         verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
+        transform.Translate(Vector3.up * verticalInput * Time.deltaTime * speed);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
