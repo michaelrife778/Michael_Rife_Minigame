@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float horizontalInput;
     public float verticalInput;
     public float speed = 10.0f;
+    public float rotateSpeed = 30.0f;
     public float xRange = 10.0f;
     public float yRange = 10.0f;
 
@@ -33,8 +34,9 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
         }
         horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed);
-
+        transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed, Space.World);
+        transform.Rotate(Vector3.forward * -horizontalInput * Time.deltaTime * rotateSpeed);
+        
 
         if (transform.position.y < -yRange)
         {
@@ -45,7 +47,7 @@ public class PlayerController : MonoBehaviour
             transform.position = new Vector3(transform.position.x, yRange, transform.position.z);
         }
         verticalInput = Input.GetAxis("Vertical");
-        transform.Translate(Vector3.up * verticalInput * Time.deltaTime * speed);
+        transform.Translate(Vector3.up * verticalInput * Time.deltaTime * speed, Space.World);
 
         if (Input.GetKeyDown(KeyCode.Space))
         {

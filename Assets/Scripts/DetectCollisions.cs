@@ -2,8 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 public class DetectCollisions : MonoBehaviour
 {
+
+    public ParticleSystem explosionParticle;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +23,14 @@ public class DetectCollisions : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+
+        explosionParticle.Play();
         
-            
-            Destroy(gameObject);
-            Destroy(other.gameObject);
+        
+        Destroy(gameObject);
+        
+        Destroy(other.gameObject);
         
     }
+
 }
