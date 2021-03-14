@@ -24,8 +24,8 @@ public class DetectCollisions : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
 
+        Instantiate(explosionParticle, transform.position, transform.rotation);
         explosionParticle.Play();
-        
         
         Destroy(gameObject);
         

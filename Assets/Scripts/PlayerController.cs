@@ -36,7 +36,8 @@ public class PlayerController : MonoBehaviour
         horizontalInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * horizontalInput * Time.deltaTime * speed, Space.World);
         transform.Rotate(Vector3.forward * -horizontalInput * Time.deltaTime * rotateSpeed);
-        
+
+       
 
         if (transform.position.y < -yRange)
         {
